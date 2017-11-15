@@ -30,4 +30,7 @@ public class MedicineCommand {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	public void test2(int test2) {
+		System.out.println("테스트2");
+	}
 }
