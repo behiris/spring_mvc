@@ -23,4 +23,8 @@ public class MedicineController {
 		
 		return "hms/medicineList";
 	}
+	
+	public void testtest(){
+		System.out.println("a");
+	}
 }
