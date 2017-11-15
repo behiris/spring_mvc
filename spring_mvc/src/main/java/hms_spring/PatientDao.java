@@ -48,7 +48,7 @@ public class PatientDao {
 				patient.getPhone(), patient.getZipcode(), patient.getAddress1(), patient.getAddress2());
 	}
 	
-	public void insert(final PatientCommand patient) {
+	public void insertPatient(final PatientCommand patient) {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
