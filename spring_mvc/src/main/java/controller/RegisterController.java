@@ -37,10 +37,10 @@ public class RegisterController {
 	
 	@RequestMapping(value="/register/step3", method=RequestMethod.POST)
 	public String handleStep3(@ModelAttribute("formData")RegisterRequest regReq, Errors errors) {
-		new RegisterControllerValidator().validate(regReq, errors);
+		/*new RegisterControllerValidator().validate(regReq, errors);//유효한 조건으로 변경해야함
 		if(errors.hasErrors()) {
 			return "register/step2";
-		}
+		}*/
 		try {
 			memberRegisterService.regist(regReq);
 			return "/register/step3";
