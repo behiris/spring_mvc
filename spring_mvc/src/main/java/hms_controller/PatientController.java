@@ -21,20 +21,19 @@ public class PatientController {
 	public String list(Model model) {
 		List<PatientCommand> patients = patientDao.selectAll();
 		model.addAttribute("patients", patients);
+		model.addAttribute("cmd", new PatientCommand());
 		
 		return "hms/patientList";
 	}
 	
 	//환자 검색기능
-	@RequestMapping("/hms/patientList")
-	public String searchPatient(@ModelAttribute("cmd")PatientCommand PatientCommand, 
+	@RequestMapping("/hms/patientSearch")
+	public String searchPatient(@ModelAttribute("cmd")PatientCommand patientCommand, 
 			Model model) {
-			if(PatientCommand.getName() != null){
-			List<PatientCommand> patients = patientDao.searchPatient();
-			PatientCommand.getName();
-			model.addAttribute("patients", patients);
+			if(patientCommand.getName() != null){
+				List<PatientCommand> patients = patientDao.searchPatient(patientCommand.getName());
+				model.addAttribute("patients", patients);
 			}
-		return "hms/patientList";
+			return "hms/patientList";
 	}
-	
 }
