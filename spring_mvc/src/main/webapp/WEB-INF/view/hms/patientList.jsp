@@ -9,15 +9,16 @@
 <title>환자 조회</title>
 </head>
 <body>
+		<form:form commandName="cmd" action="patientSearch">//환자 검색기능
+		<p>
+			<label>환자 조회 : 
+			<form:input path="name"/>
+			</label>
+			<input type="submit" value="조회">
+		</p>
+		</form:form>
+			
 		<table border="1">
-		
-			<form:form commandName="cmd">//환자 검색기능
-			<p>
-				<label>환자 조회 : <form:input path="name" /></label>
-				<input type="submit" value="조회">
-			</p>
-			</form:form>
-		
 		<tr>
 			<th>이름</th><th>성별</th>
 		</tr>

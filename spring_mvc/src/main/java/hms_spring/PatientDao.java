@@ -22,10 +22,10 @@ public class PatientDao {
 		public PatientCommand mapRow(ResultSet rs, int rowNum) throws SQLException {
 			PatientCommand patient = new PatientCommand(
 				rs.getInt("num"),
-				rs.getInt("ssn"),
+				rs.getString("ssn"),
 				rs.getString("name"),
-				rs.getString("gender"),
-				rs.getInt("phone"),
+				rs.getInt("gender"),
+				rs.getString("phone"),
 				rs.getString("zipcode"),
 				rs.getString("address1"),
 				rs.getString("address2"));
@@ -74,8 +74,8 @@ public class PatientDao {
 	}
 	
 	//환자 검색 메소드
-	public List<hms_controller.PatientCommand> searchPatient() {
-		List<PatientCommand> results = jdbcTemplate.query("select * from PATIENT where NAME ?", m_RowMapper);
-	return results;
+	public List<PatientCommand> searchPatient(String name) {
+		List<PatientCommand> results = jdbcTemplate.query("select * from PATIENT where NAME=?", m_RowMapper, name);
+		return results;
 	}
 }

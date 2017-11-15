@@ -51,12 +51,8 @@
 		<property name="medicineDao" ref="medicineDao"></property>
 	</bean>
 		
-		<bean class="hms_controller.PatientController">
-		<property name="patientDao" ref="patientDao"></property>
-	</bean>
-	
 	<!-- 환자 검색기능 -->
-	<bean class="controller.PatientController">
+	<bean class="hms_controller.PatientController">
 		<property name="patientDao" ref="patientDao"></property>
 	</bean>
 	
