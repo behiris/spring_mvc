@@ -43,10 +43,18 @@
 		<constructor-arg ref="dataSource"/>
 	</bean>
 	
+	<bean id="patientDao" class="hms_spring.PatientDao">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
 	<bean class="hms_controller.MedicineController">
 		<property name="medicineDao" ref="medicineDao"></property>
 	</bean>
 		
+		<bean class="hms_controller.PatientController">
+		<property name="patientDao" ref="patientDao"></property>
+	</bean>
+	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/edit/**"/>
