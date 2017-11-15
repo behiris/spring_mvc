@@ -67,8 +67,16 @@ public class PatientDao {
 		return result.isEmpty() ? null : result.get(0);
 	}
 	
+
 	public List<PatientCommand> selectAll() {
 		List<PatientCommand> results = jdbcTemplate.query("select * from PATIENT", m_RowMapper);
 		return results;
+	}
+	
+	//환자 검색 메소드
+	public List<hms_controller.PatientCommand> searchPatient() {
+		List<PatientCommand> results = jdbcTemplate.query(
+				"select * from PATIENT where NAME ?", m_RowMapper);
+	return results;
 	}
 }

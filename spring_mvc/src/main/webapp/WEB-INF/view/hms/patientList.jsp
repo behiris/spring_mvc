@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,13 +9,17 @@
 <title>환자 조회</title>
 </head>
 <body>
-	<c:if test="${!empty patients}">
-	<table border="1">
+		<table border="1">
+		
+			<form:form commandName="cmd">//환자 검색기능
+			<p>
+				<label>환자 조회 : <form:input path="name" /></label>
+				<input type="submit" value="조회">
+			</p>
+			</form:form>
+		
 		<tr>
-			
-		</tr>
-		<tr>
-			<th>이름</th><th>수량</th>
+			<th>이름</th><th>성별</th>
 		</tr>
 		<c:forEach var="patient" items="${patients}">
 		<tr>
@@ -24,6 +29,5 @@
 		</tr>
 		</c:forEach>
 	</table>
-	</c:if>
 </body>
 </html>
