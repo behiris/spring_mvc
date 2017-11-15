@@ -30,11 +30,11 @@ public class PatientController {
 	public String searchPatient(@ModelAttribute("cmd")PatientCommand PatientCommand, 
 			Model model) {
 			if(PatientCommand.getName() != null){
-			List<PatientCommand> patients = patientDao.searchPatient();
-			PatientCommand.getName();
-			model.addAttribute("patients", patients);
+				List<PatientCommand> patients = patientDao.searchPatient();
+				PatientCommand.getName();
+				model.addAttribute("patients", patients);
 			}
-		return "hms/patientList";
+			return "hms/patientList";
 	}
 	
 }

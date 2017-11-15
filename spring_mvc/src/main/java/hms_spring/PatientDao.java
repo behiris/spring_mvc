@@ -75,8 +75,7 @@ public class PatientDao {
 	
 	//환자 검색 메소드
 	public List<hms_controller.PatientCommand> searchPatient() {
-		List<PatientCommand> results = jdbcTemplate.query(
-				"select * from PATIENT where NAME ?", m_RowMapper);
+		List<PatientCommand> results = jdbcTemplate.query("select * from PATIENT where NAME ?", m_RowMapper);
 	return results;
 	}
 }
