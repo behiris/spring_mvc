@@ -43,23 +43,17 @@
 		<constructor-arg ref="dataSource"/>
 	</bean>
 	
-	<bean id="patientDao" class="hms_spring.PatientDao">
-		<constructor-arg ref="dataSource"/>
-	</bean>
-	
 	<bean class="hms_controller.MedicineController">
 		<property name="medicineDao" ref="medicineDao"></property>
 	</bean>
+	
+	<bean id="prescriptionDao" class="hms_spring.PrescriptionDao">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	<bean class="hms_controller.PrescriptionController">
+		<property name="prescriptionDao" ref="prescriptionDao"></property>
+	</bean>
 		
-		<bean class="hms_controller.PatientController">
-		<property name="patientDao" ref="patientDao"></property>
-	</bean>
-	
-	<!-- 환자 검색기능 -->
-	<bean class="cotroller.PatientController">
-		<property name="patientDao" ref="patientDao"></property>
-	</bean>
-	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/edit/**"/>
