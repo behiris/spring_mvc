@@ -30,7 +30,8 @@
 		</tr>
 		</c:forEach>
 		<tr>
-		<td><input type="button" value="환자 추가"><a href="<c:url value='/hms/addPatient'/>" target="_blank"></a></td>
+		<td><input type="button" value="추가"><a href="<c:url value='/hms/addPatient'/>" target="_blank"></a></td>
+		<td><input type="button" value="수정"><a href="<c:url value='/hms/updatePatient'/>" target="_blank"></a></td>
 		</tr>
 	</table>
 </body>
