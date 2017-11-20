@@ -8,22 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import hms_spring.PatientDao;
 
 @Controller
-public class PatientInsertController {
+public class PatientUpdateController {
 	private PatientDao patientDao;
 	
 	public void setPatientDao(PatientDao patientDao) {
 		this.patientDao = patientDao;
 	}
 
-	@RequestMapping("/hms/patientInsert")
+	@RequestMapping("/hms/patientUpdate")
 	public String list(Model model) {
 		model.addAttribute("cmd", new PatientCommand());
-		return "hms/patientInsert";
+		return "hms/patientUpdate";
 	}
 	
-	@RequestMapping("/hms/insertPatient")
-	public String insertPatient(@ModelAttribute("cmd")PatientCommand patientCommand, Model model) {
-		patientDao.insertPatient(patientCommand);
-		return "hms/patientInsert";
+	public String updatePatient(@ModelAttribute("cmd")PatientCommand patientCommand, Model model) {
+		patientDao.updatePatient(patientCommand);
+		return "hms/patientList";
 	}
 }

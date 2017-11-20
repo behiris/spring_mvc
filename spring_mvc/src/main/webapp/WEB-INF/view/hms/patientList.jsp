@@ -9,7 +9,7 @@
 <title>환자 조회</title>
 </head>
 <body>
-		<form:form commandName="cmd" action="patientSearch">//환자 검색기능
+		<form:form commandName="cmd" action="patientSearch">
 		<p>
 			<label>환자 조회 : 
 			<form:input path="name"/>
@@ -20,18 +20,18 @@
 			
 		<table border="1">
 		<tr>
-			<th>이름</th><th>성별</th>
+			<th>회원 번호</th><th>이름</th><th>성별</th><th>주소지</th>
 		</tr>
 		<c:forEach var="patient" items="${patients}">
 		<tr>
 			<td>${patient.num}</td>
 			<td>${patient.name}</td>
 			<td>${patient.gender}</td>
+			<td>${patient.address1} ${patient.address2}</td>
 		</tr>
 		</c:forEach>
 		<tr>
-		<td><input type="button" value="추가"><a href="<c:url value='/hms/addPatient'/>" target="_blank"></a></td>
-		<td><input type="button" value="수정"><a href="<c:url value='/hms/updatePatient'/>" target="_blank"></a></td>
+		<td><a href="<c:url value='/hms/patientInsert'/>" target="_blank"><input type="button" value="추가"></a></td>
 		</tr>
 	</table>
 </body>
