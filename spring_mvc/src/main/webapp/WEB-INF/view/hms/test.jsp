@@ -18,7 +18,7 @@ function onCheckBtn(){
 	var rowId = $("#list").jqGrid('getGridParam', 'selrow');
 	//선택한 row 데이터 전부 가져올때
 	//var userObject = $('#userListGrid').jqGrid("getRowData", rowId);
-	alert("선택한 행 : " + rowId);
+	//alert("선택한 행 : " + rowId);
 	if(rowId == null)
 		return false;
 	location.href="/spring_mvc/hms/test2?num="+rowId;//이동
@@ -30,7 +30,7 @@ function onCheckBtn2(){
 	var rowId = $("#list2").jqGrid('getGridParam', 'selrow');
 	//선택한 row 데이터 전부 가져올때
 	//var userObject = $('#userListGrid').jqGrid("getRowData", rowId);
-	alert("선택한 행 : " + rowId);
+	//alert("선택한 행 : " + rowId);
 	if(rowId == null)
 		return false;
 	location.href="/spring_mvc/hms/test2?num="+rowId;//이동
