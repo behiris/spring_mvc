@@ -33,8 +33,8 @@ public class MedicineDao {
 		return count;
 	}
 	
-	public void update(MedicineCommand medicine) {
-		jdbcTemplate.update("update MEDICINE set NAME=?, STOCK=? where NUM=?", medicine.getName(), medicine.getStock(), medicine.getNum());
+	public void update(MedicineCommand medicine, int stock) {
+		jdbcTemplate.update("update MEDICINE set NAME=?, STOCK=? where NUM=?", medicine.getName(), medicine.getStock()+stock, medicine.getNum());
 	}
 	
 	public void insert(final MedicineCommand medicine) {
@@ -59,5 +59,17 @@ public class MedicineDao {
 	public List<MedicineCommand> selectAll() {
 		List<MedicineCommand> results = jdbcTemplate.query("select * from MEDICINE", m_RowMapper);
 		return results;
+	}
+	
+	public void orderMedicine(final MedicineCommand medicine, int stock) {
+		jdbcTemplate.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement pstmt = con.prepareStatement("insert into MEDICINE_STOCK (NUM, STOCK) values(?, ?)");
+				pstmt.setLong(1, medicine.getNum());
+				pstmt.setInt(2, stock);
+				return pstmt;
+			}
+		});
 	}
 }

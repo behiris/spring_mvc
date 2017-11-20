@@ -52,7 +52,7 @@
 	</bean>
 	
 	<bean class="hms_controller.test">
-		<property name="patientDao" ref="patientDao"></property>
+		<property name="medicineDao" ref="medicineDao"></property>
 	</bean>
 		
 	<!-- 환자 검색기능 -->
