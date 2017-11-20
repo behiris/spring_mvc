@@ -45,7 +45,7 @@ public class PatientDao {
 	public void updatePatient(PatientCommand patient) {
 		jdbcTemplate.update("update PATIENT set SSN=?, NAME=?, GENDER=?, PHONE=?, ZIPCODE=?, ADDRESS1=?, ADDRESS2=? where NUM=?", 
 				patient.getSsn(), patient.getName(), patient.getGender(), 
-				patient.getPhone(), patient.getZipcode(), patient.getAddress1(), patient.getAddress2());
+				patient.getPhone(), patient.getZipcode(), patient.getAddress1(), patient.getAddress2(), patient.getNum());
 	}
 	
 	public void insertPatient(final PatientCommand patient) {

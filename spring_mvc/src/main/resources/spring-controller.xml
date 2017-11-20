@@ -67,10 +67,6 @@
 		<property name="patientDao" ref="patientDao"></property>
 	</bean>
 	
-	<bean class="hms_controller.test">
-		<property name="patientDao" ref="patientDao"></property>
-	</bean>
-	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/edit/**"/>
