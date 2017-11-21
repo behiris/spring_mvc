@@ -52,8 +52,24 @@
 	</bean>
 	<bean class="hms_controller.PrescriptionController">
 		<property name="prescriptionDao" ref="prescriptionDao"></property>
-	</bean>
+	</bean>	
 		
+	<bean class="hms_controller.test">
+		<property name="medicineDao" ref="medicineDao"></property>
+	</bean>
+
+	<bean class="hms_controller.PatientController">
+		<property name="patientDao" ref="patientDao"></property>
+	</bean>
+	
+	<bean class="hms_controller.PatientInsertController">
+		<property name="patientDao" ref="patientDao"></property>
+	</bean>
+	
+	<bean class="hms_controller.PatientUpdateController">
+		<property name="patientDao" ref="patientDao"></property>
+	</bean>
+	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/edit/**"/>
