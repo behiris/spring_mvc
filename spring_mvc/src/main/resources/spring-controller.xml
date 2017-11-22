@@ -47,7 +47,19 @@
 		<property name="medicineDao" ref="medicineDao"></property>
 	</bean>
 	
+	<bean id="medicineStockDao" class="hms_spring.MedicineStockDao">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<bean class="hms_controller.MedicineStockController">
+		<property name="medicineStockDao" ref="medicineStockDao"></property>
+	</bean>
+	
 	<bean id="prescriptionDao" class="hms_spring.PrescriptionDao">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<bean id="patientDao" class="hms_spring.PatientDao">
 		<constructor-arg ref="dataSource"/>
 	</bean>
 	<bean class="hms_controller.PrescriptionController">

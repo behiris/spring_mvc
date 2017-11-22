@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen"
@@ -17,43 +17,18 @@
 	src="${pageContext.request.contextPath}/js/grid.locale-kr.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery.jqGrid.min.js"></script>
-<script>
-	function onCheckBtn() {
-		//ì„ íƒí•œ row ID ê°’ ê°€ì ¸ì˜¬ë•Œ 
-		var rowId = $("#list").jqGrid('getGridParam', 'selrow');
-		//ì„ íƒí•œ row ë°ì´í„° ì „ë¶€ ê°€ì ¸ì˜¬ë•Œ
-		//var userObject = $('#userListGrid').jqGrid("getRowData", rowId);
-		//alert("ì„ íƒí•œ í–‰ : " + rowId);
-		if (rowId == null)
-			return false;
-		//location.href="/spring_mvc/hms/patientUpdate?num="+rowId;//ì´ë™
-		window.open('/spring_mvc/hms/patientInfo?num=' + rowId);//ìƒˆì°½
-	}
-</script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>í™˜ì ì¡°íšŒ</title>
+<title>¹ßÁÖ ³»¿ª</title>
 </head>
 <body>
-	<form:form commandName="cmd" action="patientSearch">
-		<p>
-			<label>í™˜ì ì¡°íšŒ : <form:input path="name" />
-			</label> <input type="submit" value="ì¡°íšŒ">
-		</p>
-	</form:form>
+
 	<table id="list">
-	</table>
-	<table>
-		<tr>
-			<td><a href="<c:url value='/hms/patientInsert'/>"
-				target="_blank"><input type="button" value="ì¶”ê°€"></a></td>
-		</tr>
 	</table>
 	<script>
 		jQuery("#list").jqGrid({
 			datatype : "local",
 			height : 250,
-			colNames : [ 'íšŒì›ë²ˆí˜¸', 'ì´ë¦„', 'ì„±ë³„', 'ì£¼ì†Œì§€' ],
+			colNames : [ '¾à¹øÈ£', '¾à¸í', '¹ßÁÖ ·®', '¹ßÁÖ ³¯Â¥' ],
 			colModel : [ {
 				name : 'num',
 				index : 'num',
@@ -69,35 +44,37 @@
 				sortable : false,
 				resizable : false
 			}, {
-				name : 'gender',
-				index : 'gender',
+				name : 'stock',
+				index : 'stock',
 				width : 90,
 				align : "center",
 				sortable : false,
 				resizable : false
 			}, {
-				name : 'address1',
-				index : 'address1',
+				name : 'date',
+				index : 'date',
 				width : 90,
 				align : "center",
 				sorttype : "false",
 				resizable : false
 			} ],
 			multiselect : false,
-			caption : "ë“±ë¡ í™˜ì ëª©ë¡",
+			caption : "¹ßÁÖ ³»¿ª",
+			align : "center",
+			hidegrid:false,
 			ondblClickRow : function(ids) {
-				//alert(ids);//ids : ì¸ë±ìŠ¤
+				//alert(ids);//ids : ÀÎµ¦½º
 				onCheckBtn();
 			}
 		});
-		<c:forEach var="patient" items="${patients}" varStatus="status">
+		<c:forEach var="medicineStock" items="${medicineStocks}" varStatus="status">
 		var obj = {
-			num : "${patient.num}",
-			name : "${patient.name}",
-			gender : "${patient.gender}",
-			address1 : "${patient.address1} ${patient.address2}"
+			num : "${medicineStock.num}",
+			name : "${medicineStock.name}",
+			stock : "${medicineStock.stock}",
+			date : "${medicineStock.regdate}"
 		};
-		jQuery("#list").jqGrid('addRowData', '${patient.num}', obj);
+		jQuery("#list").jqGrid('addRowData', '${medicineStock.num}', obj);
 		</c:forEach>
 	</script>
 </body>

@@ -10,6 +10,15 @@ public class MedicineStockCommand {
 	private int stock;//약재 발주수량
 	@DateTimeFormat(pattern="yyyyMMddHH")
 	private Date regdate;
+	
+	public MedicineStockCommand(long num, String name, int stock, Date regdate) {
+	
+		super();
+		this.num = num;
+		this.name = name;
+		this.stock = stock;
+		this.regdate = regdate;
+	}
 	public long getNum() {
 		return num;
 	}
