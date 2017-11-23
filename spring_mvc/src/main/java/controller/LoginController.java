@@ -23,6 +23,7 @@ public class LoginController {
 		this.authService = authService;
 	}
 	
+	
 	//쿠키 추가 후
 	@RequestMapping(method=RequestMethod.GET)
 	public String form(LoginCommand loginCommand, @CookieValue(value="REMEMBER", required=false)Cookie cookie) {

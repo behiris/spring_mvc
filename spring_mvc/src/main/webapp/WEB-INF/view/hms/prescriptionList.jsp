@@ -38,7 +38,7 @@ function a(num){
 						<td>${prescription.patient}</td>
 						<td>${prescription.doctor}</td>
 						<td>${prescription.regdate}</td>
-						<td> <input type="button" value="수정하기"
+						<td> <input type="button" value="처방하기"
 							onclick="a(${prescription.num})" /></td>
 						<td>${prescription.check}
 						 <c:if test="${prescription.check == 1}">
