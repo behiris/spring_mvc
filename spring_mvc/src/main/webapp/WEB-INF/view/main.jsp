@@ -21,6 +21,9 @@
 	<p>
 		<a href="<c:url value='/edit/changePassword'/>">[비밀번호 변경]</a>
 		<a href="<c:url value='/logout'/>">[로그아웃]</a>
+		<a href="<c:url value='/hms/patientList'/>">[환자 조회]</a>
+		<a href="<c:url value='/hms/medicineList'/>">[약품 재고조회]</a>
+		<a href="<c:url value='/hms/prescriptList'/>">[처방전]</a>
 	</p>
 	</c:if>
 </body>

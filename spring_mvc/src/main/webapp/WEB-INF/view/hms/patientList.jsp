@@ -5,18 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" media="screen"
-	href="${pageContext.request.contextPath}/css/jquery-ui.min.css" />
-<link rel="stylesheet" type="text/css" media="screen"
-	href="${pageContext.request.contextPath}/css/ui.jqgrid.css" />
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/grid.locale-kr.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/jquery.jqGrid.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/css/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/css/ui.jqgrid.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/grid.locale-kr.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.jqGrid.min.js"></script>
+
 <script>
 	function onCheckBtn() {
 		//선택한 row ID 값 가져올때 
